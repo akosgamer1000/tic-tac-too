@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import {Table} from './table'
 
 import './App.css'
 
 function App() {
   
-
-  
+    return <div>
+        <Table />
+    </div>
 }
 
 export default App
