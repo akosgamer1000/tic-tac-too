@@ -1,12 +1,12 @@
 import Button from "./Button"
-import { playerId } from "./playerId"
+import { player } from "./playerId"
 
 
 
 export function Table() {
     return <table onClick={() => {
-        if (playerId.playerId == 1) { playerId.playerId == 2 }
-        else if(playerId.playerId == 2) {playerId.playerId == 1 }
+        if (player.playerId == 1) { player.playerId = 2 }
+        else if(player.playerId == 2) {player.playerId = 1 }
     }}>
         <tr>
             <td><Button src="" id={1} /></td>
