@@ -1,15 +1,17 @@
 
-import {Table} from './table'
 
 import './App.css'
+import { Start } from './Start'
 
 
 
 
 function App() {
 
+    
+
     return <div>
-        <Table />
+        <Start></Start>
     </div>
 }
 
