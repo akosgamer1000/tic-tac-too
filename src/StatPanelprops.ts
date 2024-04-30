@@ -1,4 +1,7 @@
 export interface StatPanelProps {
     id : number,
-    name : string
+    name : string,
+    win: number,
+    loss : number,
+    winrate : number
 }
