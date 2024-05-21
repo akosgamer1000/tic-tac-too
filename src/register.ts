@@ -29,6 +29,7 @@ export async function registerNew(newName: string) {
 
 
 export async function userExist(name : string) : Promise<boolean> {
+   
     var response = await fetch(`http://localhost:3000/stats/${name}`)
     var resultJson = await response.json();
     return resultJson
