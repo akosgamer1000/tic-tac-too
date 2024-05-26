@@ -1,5 +1,5 @@
 import { StatPanel } from "./statPanel";
-import { Table } from "./table"
+import { Table } from "./table";
 import { useState } from "react";
 import { registerNew, userExist } from "./register";
 
@@ -7,26 +7,44 @@ export default function StartButton() {
     const [showTable, setShowTable] = useState(false); // State to manage Table visibility
     const [name1, setName1] = useState("");
     const [name2, setName2] = useState("");
+    const [registered1, setRegistered1] = useState(false); // State to track registration of user1
+    const [registered2, setRegistered2] = useState(false); // State to track registration of user2
 
-    const handleClick = () => {
+    const handleClick = async () => {
         const login1Value = (document.getElementById("login1") as HTMLInputElement).value;
         const login2Value = (document.getElementById("login2") as HTMLInputElement).value;
-
+    
         if (login1Value && login2Value) {
             setName1(login1Value);
             setName2(login2Value);
-            setShowTable(true);
+    
+            async function checkAndRegister(name: string) {
+                const exists = await userExist(name);
+                if (!exists) {
+                    await registerNew(name);
+                }
+                return true; // Return true once registration is complete
+            }
+    
+            // Await both registration processes
+            const [registered1, registered2] = await Promise.all([
+                checkAndRegister(login1Value),
+                checkAndRegister(login2Value),
+            ]);
+    
+            setRegistered1(registered1);
+            setRegistered2(registered2);
+    
+            setShowTable(true); // Set showTable to true after registration
         } else {
             setShowTable(false);
         }
-
-      
     };
-
+    
     return (
         <div>
             <button onClick={handleClick}>Kezdés</button>
-            {showTable && name1 && name2 && (
+            {showTable && name1 && name2 && registered1 && registered2 && (
                 <>
                     <StatPanel id={11} name={name1} />
                     <StatPanel id={22} name={name2} />
