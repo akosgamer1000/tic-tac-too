@@ -4,11 +4,11 @@ import { useState } from "react";
 import { registerNew, userExist } from "./register";
 
 export default function StartButton() {
-    const [showTable, setShowTable] = useState(false); // State to manage Table visibility
+    const [showTable, setShowTable] = useState(false); 
     const [name1, setName1] = useState("");
     const [name2, setName2] = useState("");
-    const [registered1, setRegistered1] = useState(false); // State to track registration of user1
-    const [registered2, setRegistered2] = useState(false); // State to track registration of user2
+    const [registered1, setRegistered1] = useState(false); 
+    const [registered2, setRegistered2] = useState(false);
 
     const handleClick = async () => {
         const login1Value = (document.getElementById("login1") as HTMLInputElement).value;
@@ -20,13 +20,14 @@ export default function StartButton() {
     
             async function checkAndRegister(name: string) {
                 const exists = await userExist(name);
+                console.log(exists + "ez az exists")
                 if (!exists) {
                     await registerNew(name);
                 }
-                return true; // Return true once registration is complete
+                return true; 
             }
     
-            // Await both registration processes
+           
             const [registered1, registered2] = await Promise.all([
                 checkAndRegister(login1Value),
                 checkAndRegister(login2Value),
@@ -35,7 +36,7 @@ export default function StartButton() {
             setRegistered1(registered1);
             setRegistered2(registered2);
     
-            setShowTable(true); // Set showTable to true after registration
+            setShowTable(true); 
         } else {
             setShowTable(false);
         }
