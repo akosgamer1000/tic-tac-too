@@ -50,6 +50,10 @@ export default function StartButton() {
             const container2 = document.createElement('div');
             jatekos2!.appendChild(container2);
             ReactDOM.render(<StatPanel name={login2Value} id={22} class="neon"/>, container2);
+
+            document.getElementById("Start")!.style.visibility="hidden"
+
+
         } else {
             setShowTable(false);
         }
@@ -57,7 +61,7 @@ export default function StartButton() {
     
     return (
         <div>
-            <button onClick={handleClick}>Kezdés</button>
+            <button onClick={handleClick} id="Start">Kezdés</button>
             {showTable && name1 && name2 && registered1 && registered2 && (
                 <>
                     <Table />
