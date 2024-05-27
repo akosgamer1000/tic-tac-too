@@ -29,16 +29,17 @@ export async function registerNew(newName: string) {
 }
 
 
-export async function userExist(name : string) : Promise<boolean> {
-   
-    try {
-        const response = await fetch(`http://localhost:3000/stats/${name}`);
-        const resultJson = await response.json();
-        return resultJson.exists; // Assuming the JSON response has an 'exists' key
-    } catch (error) {
-        console.error('Error fetching user data:', error);
-        return false; // Handle errors by returning false
+export async function userExist(name: string): Promise<boolean> {
+
+
+    const response = await fetch(`http://localhost:3000/stats/${name}`);
+    if (response.ok) {
+        return true
     }
 
-  
+
+    return false;
+
+
+
 }

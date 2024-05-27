@@ -34,14 +34,18 @@ export function StatPanel(props: StatPanelProps) {
     }
 
     if (statResult != "") {
-        const winRate = (statResult[0].win / (statResult[0].win + statResult[0].loss)) * 100;
+        var winRate = (statResult[0].win / (statResult[0].win + statResult[0].loss)) * 100;
+        if (statResult[0].win == 0 && statResult[0].loss == 0) {
+            winRate = 0;
+        }
+             
 
         return (
             <ul>
                 <li id={(props.id + 1).toString()}>Név: {statResult[0].name}</li>
                 <li id={(props.id + 2).toString()}>Nyert: {statResult[0].win}</li>
                 <li id={(props.id + 3).toString()}>Vesztett: {statResult[0].loss}</li>
-                <li id={(props.id + 4).toString()}>Arány: {winRate.toFixed(2)}%</li>
+                <li id={(props.id + 4).toString()}>Arány: {winRate.toFixed(2)} %</li>
             </ul>
         );
         
