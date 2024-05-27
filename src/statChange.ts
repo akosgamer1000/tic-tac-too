@@ -35,7 +35,7 @@ export function statChange(id: number) {
             var lossContent2 = (document.getElementById("14") as HTMLElement).innerHTML;
             var lossNumericPart2 = lossContent2.match(/\d+/);
             var loss2 = lossNumericPart2 ? parseInt(lossNumericPart2[0]) : NaN;
-            loss2--;
+            loss2++;
             document.getElementById("14")!.textContent = `Vesztett: ${loss2}`;
 
             

@@ -1,7 +1,9 @@
 import { StatPanel } from "./statPanel";
+import { StatPanelProps } from "./StatPanelprops";
 import { Table } from "./table";
-import { useState } from "react";
+import { createElement, createRef, useState } from "react";
 import { registerNew, userExist } from "./register";
+import ReactDOM from "react-dom";
 
 export default function StartButton() {
     const [showTable, setShowTable] = useState(false); 
@@ -13,7 +15,10 @@ export default function StartButton() {
     const handleClick = async () => {
         const login1Value = (document.getElementById("login1") as HTMLInputElement).value;
         const login2Value = (document.getElementById("login2") as HTMLInputElement).value;
-    
+
+        const jatekos1 = (document.getElementById("Stat1"));
+        const jatekos2 = (document.getElementById("Stat2"));
+        
         if (login1Value && login2Value) {
             setName1(login1Value);
             setName2(login2Value);
@@ -36,7 +41,19 @@ export default function StartButton() {
             setRegistered1(registered1);
             setRegistered2(registered2);
     
-            setShowTable(true); 
+            setShowTable(true);
+
+            const container1 = document.createElement('div');
+            jatekos1!.appendChild(container1);
+            ReactDOM.render(<StatPanel name={login1Value} id={11} class="neon"/>, container1);
+
+            const container2 = document.createElement('div');
+            jatekos2!.appendChild(container2);
+            ReactDOM.render(<StatPanel name={login2Value} id={22} class="neon"/>, container2);
+
+            document.getElementById("Start")!.style.visibility="hidden"
+
+
         } else {
             setShowTable(false);
         }
@@ -44,13 +61,12 @@ export default function StartButton() {
     
     return (
         <div>
-            <button onClick={handleClick}>Kezdés</button>
+            <button onClick={handleClick} id="Start">Kezdés</button>
             {showTable && name1 && name2 && registered1 && registered2 && (
                 <>
-                    <StatPanel id={11} name={name1} />
-                    <StatPanel id={22} name={name2} />
                     <Table />
                 </>
+
             )}
         </div>
     );

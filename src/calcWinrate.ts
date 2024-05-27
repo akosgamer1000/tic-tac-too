@@ -21,8 +21,8 @@ export function calcWinrate(id: number): number {
             var lossNumericPart2 = lossContent2.match(/\d+/);
             var loss2 = lossNumericPart2 ? parseInt(lossNumericPart2[0]) : 0;
 
-            wr = win2 + loss2 === 0 ? 0 : (win2 / (win2 + loss2)) * 100;
+            wr =  win2 + loss2 === 0 ? 0 : (win2 / (win2 + loss2)) * 100;
             break;
     }
-    return wr;
+    return parseFloat(wr.toFixed(2))
 }

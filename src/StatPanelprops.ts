@@ -1,4 +1,5 @@
 export interface StatPanelProps {
-    id : number,
-    name : string
+    id : number;
+    name : string;
+    class : string;
 }
