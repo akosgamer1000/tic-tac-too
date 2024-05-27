@@ -19,8 +19,8 @@ export function statChange(id: number) {
             document.getElementById("25")!.textContent = `Vesztett: ${loss}`;
 
             
-            document.getElementById("15")!.textContent = `Arány: ${calcWinrate(1)}`;
-            document.getElementById("26")!.textContent = `Arány: ${calcWinrate(2)}`;
+            document.getElementById("15")!.textContent = `Arány: ${calcWinrate(1)} %`;
+            document.getElementById("26")!.textContent = `Arány: ${calcWinrate(2)} %`;
             break;
 
         case 2:
@@ -39,8 +39,8 @@ export function statChange(id: number) {
             document.getElementById("14")!.textContent = `Vesztett: ${loss2}`;
 
             
-            document.getElementById("26")!.textContent = `Arány: ${calcWinrate(2)}`;
-            document.getElementById("15")!.textContent = `Arány: ${calcWinrate(1)}`;
+            document.getElementById("26")!.textContent = `Arány: ${calcWinrate(2)} %`;
+            document.getElementById("15")!.textContent = `Arány: ${calcWinrate(1)} %`;
             break;
     }
 }
