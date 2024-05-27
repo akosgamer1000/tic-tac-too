@@ -7,6 +7,7 @@ footer {
     text-align: center;
 }
 
+
 footer .neon{
     color: white;
     font-weight: normal;
@@ -166,4 +167,37 @@ header img{
             0 0 42px var(--neon-color),
             0 0 67px var(--neon-color);
     }
+}
+
+
+
+
+
+#Start {
+    background: linear-gradient(135deg, #6D5BBA, #8D58BF);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 36px 90px; 
+    font-size: 48px; 
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#Start:hover {
+    transform: translateY(-6px); 
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); 
+}
+
+#Start:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#Start:focus {
+    outline: none;
+    box-shadow: 0 0 0 9px rgba(141, 88, 191, 0.4); 
 }
