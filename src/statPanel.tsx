@@ -30,7 +30,7 @@ export function StatPanel(props: StatPanelProps) {
    
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className="neon">Loading...</div>;
     }
 
     if (statResult != "") {
@@ -42,13 +42,13 @@ export function StatPanel(props: StatPanelProps) {
 
         return (
             <ul>
-                <li id={(props.id + 1).toString()}>Név: {statResult[0].name}</li>
-                <li id={(props.id + 2).toString()}>Nyert: {statResult[0].win}</li>
-                <li id={(props.id + 3).toString()}>Vesztett: {statResult[0].loss}</li>
-                <li id={(props.id + 4).toString()}>Arány: {winRate.toFixed(2)} %</li>
+                <li id={(props.id + 1 ).toString()} className="neon">Név: {statResult[0].name}</li>
+                <li id={(props.id + 2).toString()} className="neon">Nyert: {statResult[0].win}</li>
+                <li id={(props.id + 3).toString()} className="neon">Vesztett: {statResult[0].loss}</li>
+                <li id={(props.id + 4).toString()} className="neon">Arány: {winRate.toFixed(2)} %</li>
             </ul>
         );
         
     }
 
-    return <div>Error loading data</div>;}
+    return <div className="neon">Nincs megjeleníthető adat</div>;}
